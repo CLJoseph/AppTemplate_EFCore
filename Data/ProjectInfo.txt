@@ -1,0 +1,43 @@
+﻿This project Handles comunications between the app and the database.
+====================================================================
+
+Entity framework core is the ORM in use plus Identity for user account handling.
+
+All the entities ie the database tables are given Guids (SQL unique Identifier) to identify each row.
+Has the advantage that a trip to the database is not needed to collect a 
+row ID for a new table row to be created. 
+
+Table properties are set by fluent api and not data annotations as I don't like cluttering up the classes.
+Date and time values are stored in a string , format "yyyy-mm-dd hh:mm:ss.xxx" unless there is a good reason not to.
+
+
+
+
+
+NuGet Packages installed
+Microsoft SQL Server database provider for Entity Framework Core. 3.1.3
+
+// connection string is in secrets.json file in project WebUI, select the "manage secrets" in 
+the project drop down menu.
+
+
+Database creation commands for the development system 
+=====================================================
+
+Note need to setup entity framework in  the web project before running these commands.
+EF needs to know configuration data only held there. 
+
+migration command
+ add-migration  <migration name> -StartupProject Web -Project Data
+ Update-Database -StartupProject Web
+
+
+ scafold from an existing database 
+====================================
+ scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -d 
+ "Server=.\;Database=App02;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -d 
+
+ "Server=(localdb)\\mssqllocaldb;Database=App02;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -d 
+
+
+  Scaffold-DbContext "Server=(localdb)\\mssqllocaldb;Database=App02;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model -Context "testcontext" 
