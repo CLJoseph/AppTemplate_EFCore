@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Data.Entities
 {
-    // just going to use 3 roles for this system
-    public enum AppAdminRole {AppAdministrator, Administrator, Manager, User }
-    public enum AppRole { ApplicationAdministrator,  Administrator, Manager, User }
-                      
+    // reason for creating this class is so that role is a Guid and not an int.
+    // Gives a little more flexability when creating roles in that guids can be created 
+    // on the web server saving a trip to the database to have one generated and collected.
     public class ApplicationRole : IdentityRole<Guid>
     {
     }

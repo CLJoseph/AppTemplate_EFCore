@@ -34,10 +34,10 @@ migration command
 
  scafold from an existing database 
 ====================================
- scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -d 
- "Server=.\;Database=App02;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -d 
+note this scafold command takse database from the localdb and generates a context "DBContext" 
+to represent the database. Does not have any access details for any other database as this 
+file will be in source control.
+ 
 
- "Server=(localdb)\\mssqllocaldb;Database=App02;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -d 
 
-
-  Scaffold-DbContext "Server=(localdb)\\mssqllocaldb;Database=App02;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model -Context "testcontext" 
+  Scaffold-DbContext "Server=(localdb)\\mssqllocaldb;Database=App02;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model -Context "DBContext" 

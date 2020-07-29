@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Web.Initialise;
 
 namespace AppTemplate
 {
@@ -18,6 +19,11 @@ namespace AppTemplate
             // log the app start.
             var logger = host.Services.GetRequiredService<ILogger<Program>>();
             logger.LogInformation("App started {Date} date in UTC format ", DateTime.UtcNow);
+            Initialise Init = new Initialise();
+            if (!Init.Complete)            
+            { 
+               // opps something failed handler 
+            }
             host.Run();
         }
         public static IHostBuilder CreateHostBuilder(string[] args) =>

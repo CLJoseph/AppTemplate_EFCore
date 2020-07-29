@@ -1,0 +1,10 @@
+﻿This solution contains the boiler plate code from which to build 
+a web app that needs
+  a database to store app data SQL Server is the default here.
+  authentication  a means of identifying users
+
+  The standard Microsoft logging system is the default logging in use.
+
+  Automapper installed for moving data between objects. the mappingprofile held in folder AutoMapperProfile
+
+

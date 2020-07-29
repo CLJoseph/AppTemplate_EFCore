@@ -6,10 +6,13 @@ using System.Text;
 
 namespace Data.Entities
 {
+    // customise the Identity user accounts here 
+    // note user accounts are identifided by Guids not integer ID's
+
     public class ApplicationUser:IdentityUser<Guid>
     {
         public string PersonName { get; set; }
-        public Guid OrganisationID  { get; set; }
-        public List<Instruction> Instructions { get; set; }
+
+        // add other info about a person here 
     }
 }

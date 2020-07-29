@@ -20,6 +20,10 @@ namespace AppTemplate.Controllers
 
         public IActionResult Index()
         {
+            // by default messages will go into the event log 
+
+            _logger.LogInformation(" ************************* Home Index view activated ***********************************");
+
             return View();
         }
 
